@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+
+    <style>
+        .chart-box {
+            border: 2px solid #ddd;
+
+            border-radius: 10px;
+            
+            padding: 20px;
+
+            background: #fff;
+            
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            
+        }
+
+        .paid {
+            background-color: #2ecc71;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            
+        }
+
+        .overdue {
+            background-color: #f5b7b1;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+
+    <!-- top navigation bar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+                aria-controls="offcanvasExample">
+                <span class="navbar-toggler-icon" data-bs-target="#offcanvasExample"></span>
+            </button>
+            <span class="text-white me-2">
+                <i class="bi bi-shop fs-4"></i>
+            </span>
+            <a class="navbar-brand me-auto ms-lg-0 ms-3 text-uppercase fw-bold text-white" href="#">ShopSphere</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#topNavBar"
+                aria-controls="topNavBar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="topNavBar">
+                <form class="d-flex ms-auto my-3 my-lg-0">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-primary" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle ms-2 text-white" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-fill"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li>
+                                <span class="dropdown-item">
+                                    Welcome, Admin!
+                                </span>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Edit Profile</a></li>
+                            <li><a class="dropdown-item" href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- top navigation bar -->
+
+    <!-- offcanvas: Side Menu -->
+
+    <div class="offcanvas offcanvas-start sidebar-nav" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-body bg-dark text-white">
+            <nav class="navbar-dark">
+                <ul class="navbar-nav">
+                    <li>
+                        <a href="#" class="nav-link px-1 active">
+                            <span class="me-2">
+                                <i class="bi bi-grid"></i>
+                            </span>
+                            <span class="me-1">Dashboard</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="nav-link px-1 sidebar-link" data-bs-toggle="collapse" href="#layouts">
+                            <span class="me-2"><i class="bi bi-slack"></i></span>
+                            <span>Catalog</span>
+                            <span class="ms-auto">
+                                <span class="right-icon">
+                                    <i class="bi bi-chevron-down"></i>
+                                </span>
+                            </span>
+                        </a>
+                        <div class="collapse" id="layouts">
+                            <ul class="navbar-nav ps-1">
+                                <li>
+                                    <a href="#" class="nav-link px-2">
+                                        <span class="me-2"></span>
+                                        <span>Products</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2">
+                                        <span class="me-2"></span>
+                                        <span>Categories</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#" class="nav-link px-2">
+                                        <span class="me-2"></span>
+                                        <span>Coupons</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-1">
+                            <span class="me-2">
+                                <i class="bi bi-people"></i>
+                            </span>
+                            <span class="me-1">Customers</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-1">
+                            <span class="me-2">
+                                <i class="bi bi-compass"></i>
+                            </span>
+                            <span class="me-1">Orders</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-1">
+                            <span class="me-2">
+                                <i class="bi bi-gear"></i>
+                            </span>
+                            <span class="me-1">Settings</span>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link px-1">
+                            <span class="me-2">
+                                <i class="bi bi-bullseye"></i>
+                            </span class="me-1">
+                            Online Store
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- main section  -->
+    <main class="mt-5 pt-3">
+        <div class="container-fluid">
+
+            <!-- Cards -->
+            <div class="row">
+                <div class="col-md-12 fw-bold mb-3 me-2">
+                    Your Business at a Glance – Insights, Sales, and More!
+                </div>
+            </div>
+            <div class="container">
+                <div class="row gx-2 gy-3 justify-content-center">
+                    <div class="col-md-6">
+                        <div class="card text-bg-primary h-auto p-2 text-center">
+                            <i class="bi bi-currency-rupee fs-4 mt-2"></i>
+                            <div class="card-body p-2">
+                                <span class="fw-bold fs-6">Total Sales</span>
+                                <hr>
+                                <span>₹25,000 today</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card text-bg-success h-auto p-2 text-center">
+                            <i class="bi bi-box-seam-fill fs-4 mt-2"></i>
+                            <div class="card-body p-2">
+                                <span class="fw-bold fs-6">Total Orders</span>
+                                <hr>
+                                <span>1,234 today</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card text-bg-warning h-auto p-2 text-center">
+                            <i class="bi bi-hourglass-split fs-4 mt-2"></i>
+                            <div class="card-body p-2">
+                                <span class="fw-bold fs-6">Pending Orders: </span>
+                                <span>45</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card text-bg-info h-auto p-2 text-center">
+                            <i class="bi bi-person-check fs-4 mt-2"></i>
+                            <div class="card-body p-2">
+                                <span class="fw-bold fs-6">120 New Users Added Today!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <hr>
+
+        <!-- Informative Charts -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+        <div class="container mt-2">
+
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <h4 class="fw-semibold">Best Selling Products</h4>
+                    <div class="chart-box">
+                        <canvas id="chartId" height="350"></canvas>
+                    </div>
+
+                </div>
+                <div class="col-lg-6 col-md-12 mt-3 mt-lg-0">
+                    <h4 class="fw-semibold">Weekly Sales</h4>
+                    <div class="chart-box">
+                        <canvas id="lineChart" height="350"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+
+        <hr>
+
+        <!-- Data Table showing invoices -->
+
+        <h4 style="margin-left: 10px" class="fw-semibold">Recent Invoices</h4>
+
+        <table id="example" class="table table-bordered border border-5" style="width:95%">
+            <thead>
+                <tr>
+                    <th>Invoice#</th>
+                    <th>Customer Name</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><a href="#">INV-001001</a></td>
+                    <td>Elizabeth W.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$1200.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-011112</a></td>
+                    <td>Doris R.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$5685.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-001012</a></td>
+                    <td>Andrew D.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$152.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-001401</a></td>
+                    <td>Megan S.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$1450.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-008101</a></td>
+                    <td>Walter R.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$685.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-003210</a></td>
+                    <td>Kevin L.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$2300.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-004521</a></td>
+                    <td>Amanda T.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$980.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-002334</a></td>
+                    <td>James P.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$340.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-005678</a></td>
+                    <td>Rachel C.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$5600.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-007891</a></td>
+                    <td>Daniel M.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$2750.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-009876</a></td>
+                    <td>Susan B.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$1350.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-010123</a></td>
+                    <td>Ryan G.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$1125.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-011345</a></td>
+                    <td>Michelle K.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$2500.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-012567</a></td>
+                    <td>Chris V.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$1325.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-013789</a></td>
+                    <td>Laura J.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$1999.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-014901</a></td>
+                    <td>Mark O.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$3200.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-015234</a></td>
+                    <td>Emily R.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$1700.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-016789</a></td>
+                    <td>Michael B.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$890.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-017654</a></td>
+                    <td>Jennifer W.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$2200.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-018345</a></td>
+                    <td>Joshua T.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$675.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-019567</a></td>
+                    <td>Jessica M.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$2800.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-020789</a></td>
+                    <td>Brian D.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$4100.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-021234</a></td>
+                    <td>Katherine L.</td>
+                    <td><span class="overdue">Overdue</span></td>
+                    <td>$950.00</td>
+                </tr>
+                <tr>
+                    <td><a href="#">INV-022456</a></td>
+                    <td>Tyler S.</td>
+                    <td><span class="paid">Paid</span></td>
+                    <td>$3350.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+        <script src="https://cdn.datatables.net/2.2.2/js/dataTables.js"></script>
+
+        <script>
+            new DataTable('#example');
+        </script>
+
+    </main>
+
+
+</body>
+
+</html>

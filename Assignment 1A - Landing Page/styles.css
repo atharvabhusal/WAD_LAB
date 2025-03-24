@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+
+:root {
+  --offcanvas-width: 230px;
+  --topNavBar-height: 56px;
+}
+
+.navbar{
+  background-color: #03071a !important; 
+}
+.sidebar-nav {
+  width: var(--offcanvas-width) !important;
+}
+
+.navbar {
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar.scrolled {
+    background: #15151f !important; 
+    padding: 8px 0; 
+}
+
+.card {
+    transition: box-shadow 0.3s ease-in-out, transform 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+}
+
+.offcanvas-body {
+  background-color: #01010b !important; 
+  color: #fff !important; 
+}
+
+body{
+  font-family: 'Manrope', sans-serif;
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  .offcanvas-backdrop {
+    content: none !important;
+    display: none !important;
+    position: unset !important;
+  }
+  main {
+    margin-left: var(--offcanvas-width) !important;
+  }
+  .sidebar-nav {
+    transform: none !important;
+    visibility: visible !important;
+    top: var(--topNavBar-height) !important;
+    height: calc(100% - var(--topNavBar-height)) !important;
+    
+  }
+}
