@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Mini Projects</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #00FF00;
+            font-family: 'Courier New', monospace;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            color: #00FFFF;
+            border-bottom: 1px dashed #00FF00;
+            padding-bottom: 5px;
+        }
+
+        .project {
+            margin-bottom: 2rem;
+        }
+
+        a {
+            color: #FFD700;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 3rem;
+            color: gray;
+        }
+
+        .section-title {
+            color: #00FFFF;
+            font-size: 1.5rem;
+            margin: 2rem 0 1rem;
+            border-bottom: 1px dashed #00FF00;
+            padding-bottom: 5px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: #111;
+            border: 1px solid #00FF00;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 0 10px #00FF00;
+            transition: transform 0.2s ease;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #00FF00;
+            margin-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            margin: 0.5rem 0;
+            color: #FFD700;
+        }
+
+        .card p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>My Mini Projects</h1>
+
+    <section>
+        <h2>🔧 Web Projects</h2>
+        <div class="cards">
+            <div class="card">
+                <img src="images/localhost_5173_.png" alt="Recipe Platform Screenshot">
+                <h3>🍲 Recipe Sharing Platform</h3>
+                <p>A basic web platform where users can view and share recipes. Built using the MERN Stack.</p>
+                <a href="https://tasty-tales-ild7.onrender.com/" target="_blank">Link to Site</a>
+            </div>
+    
+            <div class="card">
+                <img src="images/Snakes.png" alt="Snake Game Screenshot">
+                <h3>🐍 Snake Game</h3>
+                <p>A nostalgic JavaScript snake game — arrow keys, growing tail, you know the drill.</p>
+                <a href="https://snakes-eawq.onrender.com/" target="_blank">Link to the Game</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-title">🎨 Poster Designs</div>
+    <div class="cards">
+        <div class="card">
+            <img src="images/CodeRelay Final Poster.png" alt="TechFest Poster">
+            <h3>Code Relay Competition</h3>
+            <p>Bold glitch-style poster for this TechFest 2K25 Event</p>
+        </div>
+        <div class="card">
+            <img src="images/InnoTech Final Poster.png" alt="Environment Day Poster">
+            <h3>InnoTech Project Competition</h3>
+            <p>An Inter College Project Competition for TechFest 2K25</p>
+        </div>
+        <div class="card">
+            <img src="images/DS.jpg" alt="Orientation Poster">
+            <h3>Data Analysis Lab Banner</h3>
+            <p>My First official college banner project.</p>
+        </div>
+    </div>
+
+    <a href="/" class="back-link">← Back to Home</a>
+
+</body>
+
+</html>
