@@ -1,0 +1,13 @@
+<div class="container">
+    <h2>Student Profile Details</h2>
+    <ul *ngIf="loggedInUser">
+        <li><strong>Full Name:</strong> {{ loggedInUser.name }}</li>
+        <li><strong>Email:</strong> {{ loggedInUser.email }}</li>
+        <li><strong>Phone Number:</strong> {{ loggedInUser.phone }}</li>
+        <li><strong>Address:</strong> {{ loggedInUser.address }}</li>
+        <li><strong>Course:</strong> {{ loggedInUser.course }}</li>
+        <li><strong>Student ID:</strong> {{ loggedInUser.student_id }}</li>
+    </ul>
+
+    <button (click)="onLogout()">Logout</button>
+</div>
